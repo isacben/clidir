@@ -28,12 +28,3 @@ flowchart TD
         J["Execute the command"]
     end
 ```
-
-
-C-->D[Invoker.parse\n Parse args]
-Invoker.run\n Call the Command.run method
-B[Controller.init \n Instantiate commands and store them in a dictionary]
-D-->E[Invoker.find\n Find the command]
-    
-    
-    G-->I[Command.run\n Execute the command]
