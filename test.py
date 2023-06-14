@@ -2,7 +2,7 @@ from pycli import command_loader
 
 def main() -> int:
     print("loading commands...")
-    command_loader.create_command_dict()
+    command_loader.commands_lookup()
     
     return 0
 

@@ -1,11 +1,12 @@
 import os
 
-def create_command_dict() -> None:
+def commands_lookup() -> None:
     
     commands_dir = "./commands/"
 
 
-    res = []
+    command_file = []
+    
     for (file_path, dir_names, file_names) in os.walk(commands_dir):
         if "__pycache__" in dir_names:
             dir_names.remove("__pycache__")
@@ -15,8 +16,13 @@ def create_command_dict() -> None:
 
         if len(file_names) > 0:
             for f in file_names:
-                res.append(os.path.join(file_path, f))
+                command_file.append(os.path.join(file_path, f))
         
     
-    for r in res:
-        print(r)
+    classes_dict = {}
+    counter = 0
+    for f in command_file:
+        counter += 1
+        classes_dict[f] = counter
+    
+    print(classes_dict)
