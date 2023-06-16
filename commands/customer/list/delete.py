@@ -1,0 +1,1 @@
+description = "delete all customers"

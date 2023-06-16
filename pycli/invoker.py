@@ -1,31 +1,20 @@
-import importlib
-from dataclasses import dataclass
+
+from dataclasses import dataclass, field
 from types import ModuleType
 
 from pycli import help
 
-
+@dataclass
 class Invoker():
-    modules: list[ModuleType] = []
-
-    def __init__(self, args: list[str], command_paths: list[str]) -> None:
-        self.args = args
-        self.command_paths = command_paths
-
-
-    def load_modules(self) -> None:
-        for path in self.command_paths:
-            module_string = path.split('./')[1].replace('/', '.').replace('.py', '')
-            self.modules.append(importlib.import_module(module_string))
-        
-        for m in self.modules:
-            print(m.__name__, m.description)
+    args: list[str] = field(default_factory=list)
+    command_paths: list[str] = field(default_factory=list)
+    modules: list[ModuleType] = field(default_factory=list)
 
 
     def prepare_command(self) -> None:
-        self.load_modules()
+        pass
 
-        # print("prepare command:", self.args[0])
+        #print("prepare command:", self.args[0])
         # if self.args[0] == '': 
         #     help.print_list_of_commands('')
         #     return
