@@ -1,4 +1,3 @@
-
 def parse(args: list[str], command_files: list[str]) -> list[str]:
     
     command_path_arg = ""

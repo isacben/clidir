@@ -1,6 +1,6 @@
-from pycli import parser
-from pycli import command_loader
-from pycli import help
+import arg_parser
+import command_loader
+import help
 
 import importlib
 from types import ModuleType
@@ -8,7 +8,7 @@ from types import ModuleType
 def run(args: list[str]) -> None:
 
     command_paths: list = command_loader.commands_lookup()
-    parsed_args: list = parser.parse(args, command_paths)
+    parsed_args: list = arg_parser.parse(args, command_paths)
     modules: list[ModuleType] = []
 
     # load all available command modules
@@ -25,5 +25,3 @@ def run(args: list[str]) -> None:
 
     else:
         help.commands(modules, parsed_args[0])
-
-
