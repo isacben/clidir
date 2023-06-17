@@ -1,6 +1,5 @@
 from types import ModuleType
 
-
 def commands(modules: list[ModuleType], path: str) -> None:
     # when no topic is found
     if path == '':
