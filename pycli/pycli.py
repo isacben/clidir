@@ -1,7 +1,6 @@
 from pycli import parser
 from pycli import command_loader
 from pycli import help
-from pycli.invoker import Invoker
 
 import importlib
 from types import ModuleType
@@ -17,10 +16,13 @@ def run(args: list[str]) -> None:
         module_string = path.split('./')[1].replace('/', '.').replace('.py', '')
         modules.append(importlib.import_module(module_string))
 
-    print('parsed args:', parsed_args)
+    if 'py' in parsed_args[0]:
+        # convert directory string into the module name
+        cmd = parsed_args[0].split('./')[1].replace('/', '.').split('.py')[0]
+        for m in modules:
+            if m.__name__ == cmd:
+                m.run(parsed_args[1:])
 
-    if parsed_args[0] == '': 
-        help.commands(modules, '')
     else:
         help.commands(modules, parsed_args[0])
 

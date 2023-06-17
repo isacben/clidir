@@ -17,8 +17,5 @@ def commands_lookup() -> list[str]:
         if len(file_names) > 0:
             for f in file_names:
                 command_files.append(os.path.join(file_path, f))
-        
-    # for f in command_files:
-    #     print(f)
 
     return command_files

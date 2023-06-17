@@ -3,7 +3,7 @@ import argparse
 description = "creates a payout"
 
 
-def run(self, args: list[str]) -> None:
+def run(args: list[str]) -> None:
     parser = argparse.ArgumentParser(prog='rapyd payout create')
     parser.add_argument("amount", help="amount")
 
