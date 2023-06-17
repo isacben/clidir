@@ -1,10 +1,28 @@
-import os
+from types import ModuleType
 
-def print_list_of_commands(directory: str) -> None:
-    sections = directory.replace("/", " ")
-    print(f'usage: rapyd {sections} [-h] command',end="\n\n")
+
+def commands(modules: list[ModuleType], path: str) -> None:
+    # when no topic is found
+    if path == '':
+        topic = 'commands'
+        print(f'usage: rapyd [-h] command',end="\n\n")
+    else:
+        # produce format for 'topic': topic1.topic2.topic3
+        topic = path.split('./commands/')[1].replace('/', '.')
+        print(f'usage: rapyd {topic.replace(".", " ")} [-h] command',end="\n\n")
+    
     print("commands:")
 
-    for path in os.listdir("./commands/" + directory):
-        if not (path.startswith(".") or path.startswith("_")):
-            print("  " + path.split('.')[0])
+    cmd_pointer = "" # this helps print the help for the first command in a sub topic
+    for m in modules:
+        if topic in m.__name__:
+            module_elements = m.__name__.split('.')
+            
+            # deal only with the commands inside the target topic
+            i = module_elements.index(topic.split('.')[-1]) # the topic is the deepest folder
+            cmd_name = module_elements[i + 1]
+
+            if not cmd_pointer == cmd_name:
+                print('  {0:20}  {1}'.format(cmd_name, m.description))
+
+            cmd_pointer = cmd_name
