@@ -34,7 +34,11 @@ def run(args: list[str]) -> None:
 
 ## Installation
 
-TODO
+Install this tool using `pip`:
+
+```
+pip install clidir
+```
 
 ## Usage
 
@@ -81,31 +85,4 @@ def run(args: list[str]) -> None:
 ```shell
 % python3 main.py remote add      
 running the add command...
-```
-
-## Command Execution Flow
-
-Below is a diagram that outlines at a high level the process that occurs every time a user executes a command through clidir.
-
-```mermaid
-flowchart TD
-    subgraph "CLI app"
-        a1[Get arguments]-->a2[Call clidir]
-    end
-
-    a2-->A
-
-    subgraph "clidir"
-        A[Parse arguments]-->B[Look for commands in the filesystem]
-        B-->C[Import the command files as modules]
-        C-->D{First argument}
-        D-->|Command| H[Run command]
-        D-->|Topic or empty| I[Display topic help]
-    end
-    
-    H-->J
-
-    subgraph Command Module
-        J["Execute the command"]
-    end
 ```
