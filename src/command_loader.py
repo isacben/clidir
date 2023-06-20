@@ -3,8 +3,6 @@ import os
 def commands_lookup() -> list[str]:
     
     commands_dir = "./commands/"
-
-
     command_files = []
     
     for (file_path, dir_names, file_names) in os.walk(commands_dir):
