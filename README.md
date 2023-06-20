@@ -1,4 +1,4 @@
-# pycli
+# clidir
 
 Create CLI applications with sub commands easily.
 
@@ -8,7 +8,7 @@ Even simple CLI applications usually require sub commands. For example, `git` ha
 
 Keeping the commands source code organized in the project can also be complicated.
 
-pycli helps you easily implement commands and sub commands by organizing your Python files in sub directories, so that you can use `argparse` in the simplest way, without the need of `add_subparsers()`.
+clidir helps you easily implement commands and sub commands by organizing your Python files in sub directories, so that you can use `argparse` in the simplest way, without the need of `add_subparsers()`.
 
 For example, to create a `git remote add` command, the project structure would be:
 
@@ -42,11 +42,11 @@ TODO
 
 ```python
 import sys
-import pycli
+import clidir
 
 def main() -> int:
     args = sys.argv[1:]
-    pycli.run(args)
+    clidir.run(args)
     
     return 0
 
@@ -85,17 +85,17 @@ running the add command...
 
 ## Command Execution Flow
 
-Below is a diagram that outlines at a high level the process that occurs every time a user executes a command through pycli.
+Below is a diagram that outlines at a high level the process that occurs every time a user executes a command through clidir.
 
 ```mermaid
 flowchart TD
     subgraph "CLI app"
-        a1[Get arguments]-->a2[Call pycli]
+        a1[Get arguments]-->a2[Call clidir]
     end
 
     a2-->A
 
-    subgraph "pycli"
+    subgraph "clidir"
         A[Parse arguments]-->B[Look for commands in the filesystem]
         B-->C[Import the command files as modules]
         C-->D{First argument}
