@@ -40,6 +40,10 @@ Install this tool using `pip`:
 pip install clidir
 ```
 
+## Examples
+
+* [Hello World](https://github.com/isacben/clidir-hello-world)
+
 ## Usage
 
 1. Create a `main.py` file with the following code:
