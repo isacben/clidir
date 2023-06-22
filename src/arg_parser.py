@@ -1,3 +1,5 @@
+import os
+
 def parse(args: list[str], command_files: list[str]) -> list[str]:
     
     command_path_arg = ""
@@ -13,8 +15,9 @@ def parse(args: list[str], command_files: list[str]) -> list[str]:
             break
 
         elif any(path in substring for substring in command_files):
-            command_path_arg = path
-            args_start = arg_position + 1
+            if os.path.exists(path):
+                command_path_arg = path
+                args_start = arg_position + 1
 
         else:
             break

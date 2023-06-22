@@ -8,7 +8,7 @@ from types import ModuleType
 def run(args: list[str]) -> None:
 
     command_paths: list = command_loader.commands_lookup()
-    parsed_args: list = arg_parser.parse(args, command_paths)
+    parsed_args: list = arg_parser.parse(args[1:], command_paths)
     modules: list[ModuleType] = []
 
     # load all available command modules
@@ -24,4 +24,4 @@ def run(args: list[str]) -> None:
                 m.run(parsed_args[1:])
 
     else:
-        help.commands(modules, parsed_args[0])
+        help.commands(args[0], modules, parsed_args[0])
