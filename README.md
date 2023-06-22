@@ -53,7 +53,7 @@ import sys
 import clidir
 
 def main() -> int:
-    args = sys.argv[1:]
+    args = sys.argv[]
     clidir.run(args)
     
     return 0
