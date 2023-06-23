@@ -1,6 +1,7 @@
 from types import ModuleType
+from typing import List
 
-def commands(app: str, modules: list[ModuleType], path: str) -> None:
+def commands(app: str, modules: List[ModuleType], path: str) -> None:
     # when no topic is found
     if path == '':
         topic = 'commands'

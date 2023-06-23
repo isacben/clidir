@@ -1,6 +1,8 @@
 import os
 
-def commands_lookup() -> list[str]:
+from typing import List
+
+def commands_lookup() -> List[str]:
     
     commands_dir = "./commands/"
     command_files = []
