@@ -1,6 +1,8 @@
 import os
 
-def parse(args: list[str], command_files: list[str]) -> list[str]:
+from typing import List
+
+def parse(args: List[str], command_files: List[str]) -> List[str]:
     
     command_path_arg = ""
     args_start = 0

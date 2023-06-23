@@ -4,12 +4,13 @@ import help
 
 import importlib
 from types import ModuleType
+from typing import List
 
-def run(args: list[str]) -> None:
+def run(args: List[str]) -> None:
 
     command_paths: list = command_loader.commands_lookup()
     parsed_args: list = arg_parser.parse(args[1:], command_paths)
-    modules: list[ModuleType] = []
+    modules: List[ModuleType] = []
 
     # load all available command modules
     for path in command_paths:
