@@ -1,5 +1,10 @@
 # clidir
 
+[![PyPI](https://img.shields.io/pypi/v/clidir.svg)](https://pypi.org/project/clidir/)
+[![Changelog](https://img.shields.io/github/v/release/isacben/clidir?include_prereleases&label=changelog)](https://github.com/isacben/clidir/releases)
+[![Tests](https://github.com/isacben/clidir/workflows/Test/badge.svg)](https://github.com/isacben/clidir/actions?query=workflow%3ATest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/isacben/clidir/blob/master/LICENSE)
+
 Create CLI applications with sub commands easily.
 
 ## Description
